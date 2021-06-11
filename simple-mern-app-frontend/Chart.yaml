@@ -4,8 +4,8 @@ description: A Helm Chart for simple-mern-app-frontend
 
 dependencies: 
 - name: simple-mern-app-backend
-  version: "1.0.0"
-  repository: "http://143.110.216.38:8080/api/charts"
+  version: "1.0.1"
+  repository: "https://github.com/Sohaib-Mohiuddin/simple-mern-app/tree/main/simple-mern-app-frontend/charts/simple-mern-app-backend"
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
