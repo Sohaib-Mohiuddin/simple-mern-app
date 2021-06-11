@@ -21,7 +21,6 @@ pipeline {
                 }
                 echo 'Building Backend Image - Complete'
             }
-            
         }
         stage('Build Frontend Image') {
             steps {
@@ -31,7 +30,6 @@ pipeline {
                 }
                 echo 'Building Frontend Image - Complete'
             }
-            
         }
         stage('Push Backend Image to DockerHub') {
             steps {
@@ -43,7 +41,6 @@ pipeline {
                 }
                 echo 'Pushing Backend Image - Complete'
             }
-            
         }
         stage('Push Frontend Image to DockerHub') {
             steps {
@@ -55,7 +52,6 @@ pipeline {
                 }
                 echo 'Pushing Frontend Image - Complete'
             }
-            
         }
         stage('Prune Dangling Images/Containers') {
             steps {
@@ -65,7 +61,6 @@ pipeline {
                 sh "docker image prune -f"
                 echo 'Pruning - Complete'
             }
-            
         }
     }
 }
