@@ -5,7 +5,7 @@ metadata:
   labels:
     app: simple-mern-app-backend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: simple-mern-app-backend
@@ -28,7 +28,7 @@ spec:
   selector: 
     app: simple-mern-app-backend
   type: 
-    LoadBalancer
+    NodePort
   ports: 
     - protocol: TCP
       port: 5000
