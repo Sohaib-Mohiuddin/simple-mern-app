@@ -1,0 +1,37 @@
+def DOCKER_BUILD_PUSH
+
+pipeline {
+    environment {
+        DOCKERHUB_REPO = 'sohaibm'
+        IMAGE_NAME = 'simple-mern-app-backend'
+        VERSION = '1.0'
+    }
+    
+    agent any
+    
+    stages {
+        stage('Build Image') {
+            echo 'Building Image'
+            script {
+                DOCKER_BUILD_PUSH = docker.build("${DOCKERHUB_REPO}/${IMAGE_NAME}:${VERSION}", '.')
+            }
+            echo 'Building Image - Complete'
+        }
+        stage('Push Image to DockerHub') {
+            echo 'Pushing Image'
+            script {
+                docker.withRegistry('', 'DockerHub') {
+                    DOCKER_BUILD_PUSH.push()
+                }
+            }
+            echo 'Pushing Image - Complete'
+        }
+        stage('Prune Dangling Images/Containers') {
+            echo 'Pruning Containers'
+            sh "docker container prune -f"
+            echo 'Pruning Images'
+            sh "docker image prune -f"
+            echo 'Pruning - Complete'
+        }
+    }
+}
