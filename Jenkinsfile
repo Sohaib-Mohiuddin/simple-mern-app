@@ -6,8 +6,8 @@ pipeline {
         DOCKERHUB_REPO = 'sohaibm'
         BACKEND_IMAGE_NAME = 'simple-mern-app-backend'
         FRONTEND_IMAGE_NAME = 'simple-mern-app-frontend'
-        BACKEND_VERSION = '1.0.0'
-        FRONTEND_VERSION = '1.0.0'
+        BACKEND_VERSION = '1.0.1'
+        FRONTEND_VERSION = '1.0.1'
     }
     
     agent any
