@@ -9,10 +9,10 @@ const mongoose = require('mongoose'); // required for MongoDB connect
 const mongoUrl = process.env.DB_URL; // MUST HAVE MONGODB URL IN ENVIRONMENT VARIABLE
 
 // Import API Routes
-const apiRoutes = require('./routes/randomimgs');
+const apiRoutes = require('./routes/api');
 
 // Middleware
-app.use(apiRoutes);
+app.use('/api', apiRoutes);
 
 // MongoDB Connection
 mongoose.connect(
