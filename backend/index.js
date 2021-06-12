@@ -8,28 +8,20 @@ require('dotenv/config');
 const mongoose = require('mongoose'); // required for MongoDB connect
 const mongoUrl = process.env.DB_URL; // MUST HAVE MONGODB URL IN ENVIRONMENT VARIABLE
 
-var request = require('request');
+// Import API Routes
+const apiRoutes = require('./routes/randomimgs');
 
-app.get('/api', (req, res) => res.json({ message: 'Hello from simple-mern-app backend api' }));
-app.get('/api/randomimg', (req, res) => {
-    request('https://dog.ceo/api/breeds/image/random', function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var parsedJson = JSON.parse(body);
-            var message = parsedJson['message']
-            res.send({ message });
-        }
-    });
-});
+// Middleware
+app.use(apiRoutes);
 
 // MongoDB Connection
 mongoose.connect(
     mongoUrl,
     { useNewUrlParser: true, useUnifiedTopology: true },
-    () => {
-        console.log('Connected to DB')
-    }
+    () => { console.log('Connected to DB') }
 );
 
+// Listen on port and host
 app.listen(port, () => {
-    console.log(`Connection to backend established. Running on ${host}:${port}`)
+    console.log(`Connection to backend established. Running on ${host}:${port}`);
 });
