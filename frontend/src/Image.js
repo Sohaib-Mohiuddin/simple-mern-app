@@ -13,8 +13,8 @@ export default class Image extends Component {
         axios.get('/api/randomimg').then(response => {
             this.setState({
                 image: response.data.message
-            });
-        });
+            })
+        })
     }
     
     render() {
