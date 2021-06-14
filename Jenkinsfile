@@ -4,10 +4,10 @@ def frontend_build_push
 pipeline {
     environment {
         DOCKERHUB_REPO = 'sohaibm'
-        BACKEND_IMAGE_NAME = 'simple-mern-app-backend'
         FRONTEND_IMAGE_NAME = 'simple-mern-app-frontend'
-        BACKEND_VERSION = '1.0.1'
-        FRONTEND_VERSION = '1.0.1'
+        FRONTEND_VERSION = '1.0.2'
+        BACKEND_IMAGE_NAME = 'simple-mern-app-backend'
+        BACKEND_VERSION = '1.0.2'
     }
     
     agent any
